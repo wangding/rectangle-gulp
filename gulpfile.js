@@ -1,4 +1,4 @@
-const { src, parallel } = require('gulp'),
+const { src, dest, parallel, series } = require('gulp'),
       htmlhint = require('gulp-htmlhint'),
       csslint  = require('gulp-csslint'),
       eslint   = require('gulp-eslint');
@@ -19,7 +19,43 @@ function lintCSS() {
 function lintJS() {
   return src('./src/*.js')
     .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 }
 
 module.exports.lint = parallel(lintHTML, lintCSS, lintJS);
+
+const htmlmin = require('gulp-htmlmin'),
+      cssmin  = require('gulp-csso'),
+      terser  = require('terser'),
+      gterser = require('gulp-terser');
+
+function minfiyHTML() {
+  return src('./src/*.html')
+    .pipe(htmlmin( {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeOptionalTags: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true
+    }))
+    .pipe(dest('./dist'));
+}
+
+function minifyCSS() {
+  return src('./src/*.css')
+    .pipe(cssmin())
+    .pipe(dest('./dist'));
+}
+
+function minifyJS() {
+  return src('./src/*.js')
+    .pipe(gterser({}, terser.minify))
+    .pipe(dest('./dist'));
+}
+
+module.exports.minify = parallel(minfiyHTML, minifyCSS, minifyJS);
+module.exports.default = series(
+  parallel(lintHTML, lintCSS, lintJS),
+  parallel(minfiyHTML, minifyCSS, minifyJS)
+);

@@ -4,7 +4,7 @@ node_js:
 
 after_script:
   - mkdir dist
-  - cp ./src/* ./dist
+  - gulp minify
   - cd ./dist
   - git init
   - git config user.name "${USER_NAME}"

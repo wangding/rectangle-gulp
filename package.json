@@ -1,6 +1,6 @@
 {
   "name": "rectangle",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "计算矩形的面积和周长",
   "main": "rectangle.js",
   "scripts": {
@@ -22,9 +22,14 @@
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "csslint-stylish": "0.0.6",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-csslint": "^1.0.1",
+    "gulp-csso": "^4.0.1",
     "gulp-eslint": "^6.0.0",
     "gulp-htmlhint": "^4.0.1",
-    "jest": "^27.0.4"
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-terser": "^2.0.1",
+    "jest": "^27.0.4",
+    "terser": "^5.7.0"
   }
 }
