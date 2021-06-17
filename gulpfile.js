@@ -1,4 +1,4 @@
-const { src, dest, parallel } = require('gulp'),
+const { src, parallel } = require('gulp'),
       htmlhint = require('gulp-htmlhint'),
       csslint  = require('gulp-csslint'),
       eslint   = require('gulp-eslint');

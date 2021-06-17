@@ -1,10 +1,10 @@
 {
   "name": "rectangle",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "计算矩形的面积和周长",
   "main": "rectangle.js",
   "scripts": {
-    "test": "gulp lint"
+    "test": "gulp lint && jest"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,14 @@
   },
   "homepage": "https://github.com/wangding/rectangle#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/eslint-parser": "^7.14.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "csslint-stylish": "0.0.6",
     "gulp": "^4.0.2",
     "gulp-csslint": "^1.0.1",
     "gulp-eslint": "^6.0.0",
-    "gulp-htmlhint": "^4.0.1"
+    "gulp-htmlhint": "^4.0.1",
+    "jest": "^27.0.4"
   }
 }

@@ -1,10 +1,11 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 12
   },
   "env": {
     "browser": true
   },
+  "parser": "@babel/eslint-parser",
   "extends": "eslint:recommended",
   "rules": {
     "indent": [

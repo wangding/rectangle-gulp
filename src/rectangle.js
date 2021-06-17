@@ -1,19 +1,17 @@
-const q = document.querySelector,
-      $ = q.bind(document);
+export class Rectangle {
+  #w = 0;
+  #h = 0;
 
-let $width = $('#width'),
-    $height = $('#height'),
-    $btnCal = $('#calculate'),
-    $perimeter = $('#perimeter'),
-    $area = $('#area');
+  constructor(width, height) {
+    this.#w = Number(width);
+    this.#h = Number(height);
+  }
 
-$btnCal.onclick = () => {
-  let w = Number($width.value),
-      h = Number($height.value);
+  get area() {
+    return this.#w * this.#h;
+  }
 
-  let p = 2 * (w + h),
-      a = w * h;
-
-  $perimeter.value = p;
-  $area.value = a;
-};
+  get perimeter() {
+    return 2 * (this.#w + this.#h);
+  }
+}
