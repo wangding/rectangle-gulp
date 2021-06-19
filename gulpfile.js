@@ -27,8 +27,7 @@ module.exports.lint = parallel(lintHTML, lintCSS, lintJS);
 
 const htmlmin = require('gulp-htmlmin'),
       cssmin  = require('gulp-csso'),
-      terser  = require('terser'),
-      gterser = require('gulp-terser');
+      webpack = require('gulp-webpack-yawp');
 
 function minfiyHTML() {
   return src('./src/*.html')
@@ -49,8 +48,8 @@ function minifyCSS() {
 }
 
 function minifyJS() {
-  return src('./src/*.js')
-    .pipe(gterser({}, terser.minify))
+  return src('./src/main.js')
+    .pipe(webpack())
     .pipe(dest('./dist'));
 }
 
