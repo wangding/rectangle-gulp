@@ -1,0 +1,1 @@
+(()=>{"use strict";class e{#w=0;#h=0;constructor(e,t){this.#w=Number(e),this.#h=Number(t)}get area(){return this.#w*this.#h}get perimeter(){return 2*(this.#w+this.#h)}}const t=document.querySelector.bind(document);let r=t("#width"),i=t("#height"),u=t("#calculate"),a=t("#perimeter"),h=t("#area");u.onclick=()=>{let t=new e(r.value,i.value);a.value=t.perimeter,h.value=t.area}})();
